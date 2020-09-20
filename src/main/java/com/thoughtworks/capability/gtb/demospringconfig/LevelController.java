@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LevelController {
 
-    @Value("${levelNumber}")
+    public void setLevelNumber(@Value("${levelNumber}")int levelNumber) {
+        this.levelNumber = levelNumber;
+    }
+
     private int levelNumber;
 
     @GetMapping("/level")

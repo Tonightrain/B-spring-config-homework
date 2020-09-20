@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,11 +21,15 @@ class LevelControllerTest {
     @Autowired
     MockMvc mockMvc;
 
+    @Autowired
+    private LevelController levelController;
+
     @Value("${levelNumber}")
     private int levelNumber;
 
     @Test
     void shouldReturnBasicWhenLevelNumberIsLessThanOne() throws Exception {
+        levelController.setLevelNumber(2);
         mockMvc.perform(get("/level"))
                 .andExpect(jsonPath("$",is("advanced")))
                 .andExpect(status().isOk());
