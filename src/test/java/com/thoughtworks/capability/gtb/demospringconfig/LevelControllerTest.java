@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.hamcrest.Matchers.*;
 
-@SpringBootTest
+@SpringBootTest(properties = {"levelNumber:1"})
 @AutoConfigureMockMvc
 class LevelControllerTest {
 
