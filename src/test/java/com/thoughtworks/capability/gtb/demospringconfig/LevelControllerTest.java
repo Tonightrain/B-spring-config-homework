@@ -26,7 +26,7 @@ class LevelControllerTest {
     @Test
     void shouldReturnBasicWhenLevelNumberIsLessThanOne() throws Exception {
         mockMvc.perform(get("/level"))
-                .andExpect(jsonPath("$",is("basic")))
+                .andExpect(jsonPath("$",is("advanced")))
                 .andExpect(status().isOk());
     }
 
