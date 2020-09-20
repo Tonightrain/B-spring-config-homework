@@ -29,5 +29,4 @@ class LevelControllerTest {
                 .andExpect(jsonPath("$",is("advanced")))
                 .andExpect(status().isOk());
     }
-
 }
